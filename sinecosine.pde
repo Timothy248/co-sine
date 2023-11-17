@@ -6,7 +6,10 @@ int fr, fg, fb;
 
 ArrayList<Point> points = new ArrayList<Point>();
 
+// mouse mode / auto mode
 boolean MOUSE = true;
+
+// sinus mode / cosine mode
 boolean SIN = true;
 
 int counter;
@@ -17,9 +20,7 @@ int bx, by, bsx, bsy;
 boolean overMouseButton = false;
 boolean overModeButton = false;
 
-
-
-// alpha in radians
+// alpha in radians (display on the left)
 float alpha;
 
 void setup() {
@@ -134,8 +135,8 @@ void draw() {
      stroke(fr, fg, fb);
      float value;
      strokeWeight(12);
-     if(SIN) value = map(sin(alpha), -1, 1, -r, r);
-     else value = map(cos(alpha), -1, 1, -r, r);
+     if(SIN) value = map(sin(alpha), -1, 1, -r, r) * -1;
+     else value = map(cos(alpha), -1, 1, -r, r) * -1;
      point(x + ((PI * 200) / 2) + (r*2), y + value);
   }
   
